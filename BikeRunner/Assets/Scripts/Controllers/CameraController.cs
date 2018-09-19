@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour {
-    Transform mLookAt;
-    Vector3 mStartingOffset = Vector3.zero;
-    Vector3 mMovementVector = Vector3.zero;
+    Transform mLookAt;                          // The transform of the object the camera is supposed to be looking at. In this case, the player.
+    Vector3 mStartingOffset = Vector3.zero;     // The offset at which the camera will remain, from the starting of the game.
+    Vector3 mMovementVector = Vector3.zero;     // The position that the camera is supposed to be in at the time.
 
     // Use this for initialization
     void Start() {

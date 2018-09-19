@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour {
     float MaxSpeed = 5.0f;                  // Maximum speed the player is allowed to reach
     [SerializeField]
     float Acceleration = 10.0f;             // The acceleration that the player will experience on start and stop.
+    [SerializeField]
+    float TiltRotation = 15.0f;             // The angle in degrees of rotation, used to tilt the bike when strafing.
 
     CharacterController mController;        // Reference to the CharacterController of the player character.
     Vector3 mMovementVector = Vector3.zero; // The movement value that will be updated on the Character Controller every frame.
@@ -38,8 +40,9 @@ public class PlayerMovement : MonoBehaviour {
         {
             StartCoroutine(Accelerate(false));
         }
-        // Horizontal movement.
+        // Horizontal movement and tilt the bike towards movement.
         mMovementVector.x = Input.GetAxisRaw("Horizontal") * MaxSpeed / 2;
+        transform.rotation = Quaternion.AngleAxis(Input.GetAxisRaw("Horizontal") * -TiltRotation, Vector3.forward);
 
         mController.Move(mMovementVector * Time.deltaTime);
 	}
