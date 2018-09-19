@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour {
         {
             while (mMovementVector.z <= MaxSpeed)
             {
-                mMovementVector.z = mMovementVector.z + Acceleration * Time.smoothDeltaTime;
+                mMovementVector.z = mMovementVector.z + Acceleration * Time.deltaTime;
                 yield return null;
             }
             mMovementVector.z = MaxSpeed; //Manually clamp to MaxSpeed
@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour {
         {
             while (mMovementVector.z >= 0.0f)
             {
-                mMovementVector.z = mMovementVector.z - Acceleration * Time.smoothDeltaTime;
+                mMovementVector.z = mMovementVector.z - Acceleration * Time.deltaTime;
                 yield return null;
             }
             mMovementVector.z = 0.0f; //Manually clamp to 0

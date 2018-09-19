@@ -3,16 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour {
-    [SerializeField]
-    GameObject PlayerReference;
-
     Transform mLookAt;
     Vector3 mStartingOffset = Vector3.zero;
     Vector3 mMovementVector = Vector3.zero;
 
     // Use this for initialization
     void Start() {
-        mLookAt = PlayerReference.transform;
+        mLookAt = GameObject.FindGameObjectWithTag("Player").transform;
         mStartingOffset = transform.position - mLookAt.position;
         mMovementVector.x = transform.position.x;
     }
