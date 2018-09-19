@@ -61,7 +61,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Player\Movement.cs" />
+    <Compile Include="Assets\Scripts\Controllers\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Projects/Games/Unity-EndlessRunner/BikeRunner/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
