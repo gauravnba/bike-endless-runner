@@ -63,7 +63,8 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Controllers\CameraController.cs" />
     <Compile Include="Assets\Scripts\EndlessPlatformSpawner.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\GameOverAndRestart.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\RefillFuel.cs" />
     <Compile Include="Assets\Scripts\ScoreKeeper.cs" />
     <Reference Include="UnityEditor.StandardEvents">
