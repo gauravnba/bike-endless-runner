@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameOverAndRestart : MonoBehaviour {
     [SerializeField]
-    Text FinalScore;
+    Text FinalScore;        // The reference to the Text field that displays score on the GameOver screen.
 
 	// Use this for initialization
 	void Start () {
