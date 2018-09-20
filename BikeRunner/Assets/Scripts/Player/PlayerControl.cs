@@ -45,7 +45,7 @@ public class PlayerControl : MonoBehaviour {
         if (hit.gameObject.name.Contains("Obstacle"))
         {
             isDead = true;
-            mPlayerDead();
+            if(mPlayerDead!= null) mPlayerDead();
         }
     }
 
@@ -107,6 +107,7 @@ public class PlayerControl : MonoBehaviour {
             }
             mMovementVector.z = 0.0f; //Manually clamp to 0
         }
-        mPlayerMoving((mMovementVector.z > 0) ? true : false); // Player is moving if the z value of movement vector is positive.
+        if (mPlayerMoving != null)
+            mPlayerMoving((mMovementVector.z > 0) ? true : false); // Player is moving if the z value of movement vector is positive.
     }
 }
