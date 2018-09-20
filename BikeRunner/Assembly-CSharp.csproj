@@ -61,9 +61,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\EndlessPlatformSpawner.cs" />
     <Compile Include="Assets\Scripts\Controllers\CameraController.cs" />
+    <Compile Include="Assets\Scripts\EndlessPlatformSpawner.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\RefillFuel.cs" />
+    <Compile Include="Assets\Scripts\ScoreKeeper.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Projects/Games/Unity-EndlessRunner/BikeRunner/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

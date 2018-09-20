@@ -9,10 +9,13 @@ public class PlayerMovement : MonoBehaviour {
     float Acceleration = 10.0f;             // The acceleration that the player will experience on start and stop.
     [SerializeField]
     float TiltRotation = 15.0f;             // The angle in degrees of rotation, used to tilt the bike when strafing.
+    public float Fuel = 100;                // The amount of fuel held by player.
 
     CharacterController mController;        // Reference to the CharacterController of the player character.
     Vector3 mMovementVector = Vector3.zero; // The movement value that will be updated on the Character Controller every frame.
-    float mGravity = 9.8f;
+
+    const float FUEL_REDUCE_FACTOR = 0.01f; // The factor to be multiplied to the 'velocity vector', to apply fuel reduction.
+    const float GRAVITY = 9.8f;             // Value of gravity, used to simulate falling, if a bridge type platform is spawned.
 
 	// Use this for initialization
 	void Start () {
@@ -21,6 +24,15 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (Fuel >= 0)
+        {
+            UpdateMovement();
+        }
+        UpdateFuel();
+    }
+
+    void UpdateMovement()
+    {
         // Update gravity
         if (mController.isGrounded)
         {
@@ -28,7 +40,7 @@ public class PlayerMovement : MonoBehaviour {
         }
         else
         {
-            mMovementVector.y -= mGravity * Time.smoothDeltaTime;
+            mMovementVector.y -= GRAVITY * Time.smoothDeltaTime;
         }
 
         // Forward and Backward Movement
@@ -36,7 +48,7 @@ public class PlayerMovement : MonoBehaviour {
         {
             StartCoroutine(Accelerate(true));
         }
-        if(Input.GetAxisRaw("Vertical") < 0)
+        if (Input.GetAxisRaw("Vertical") < 0)
         {
             StartCoroutine(Accelerate(false));
         }
@@ -45,7 +57,17 @@ public class PlayerMovement : MonoBehaviour {
         transform.rotation = Quaternion.AngleAxis(Input.GetAxisRaw("Horizontal") * -TiltRotation, Vector3.forward);
 
         mController.Move(mMovementVector * Time.deltaTime);
-	}
+    }
+
+    void UpdateFuel()
+    {
+        Fuel -= mMovementVector.z * FUEL_REDUCE_FACTOR;
+
+        if (Fuel <= 0)
+        {
+            mMovementVector.z = 0.0f;
+        }
+    }
 
     IEnumerator Accelerate(bool towardsFacing)
     {

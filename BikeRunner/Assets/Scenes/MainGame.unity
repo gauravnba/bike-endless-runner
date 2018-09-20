@@ -142,11 +142,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Platforms:
   - {fileID: 1375731703780184, guid: 2c702fba83873254fb83f29b5ceae988, type: 2}
-  - {fileID: 1696459801831666, guid: 8f13f0bbfddf4b6429d15cabc9beca78, type: 2}
-  - {fileID: 1996914404237428, guid: d25c82f014209954cb1bb47e0893323c, type: 2}
-  - {fileID: 1355501779596876, guid: fe0087db9b55e7e40a1cd2e87cbf0de7, type: 2}
-  - {fileID: 1455005250137452, guid: 4180df1a4a006384682f5bc0b0282e64, type: 2}
+  - {fileID: 1511273316310970, guid: d57d960dda6346c4fa66d63cb56802aa, type: 2}
+  - {fileID: 1759090906155938, guid: 4180df1a4a006384682f5bc0b0282e64, type: 2}
+  - {fileID: 1854560060815412, guid: d25c82f014209954cb1bb47e0893323c, type: 2}
+  - {fileID: 1319035554668358, guid: 8f13f0bbfddf4b6429d15cabc9beca78, type: 2}
   MaxNumOfPlatforms: 7
+  FuelRefillPrototype: {fileID: 1783196944828270, guid: e0b836cb6c6cf814d857952cd27a0a1c,
+    type: 2}
 --- !u!4 &62942980
 Transform:
   m_ObjectHideFlags: 0
@@ -423,3 +425,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxSpeed: 10
   Acceleration: 5
+  TiltRotation: 15
+  Fuel: 100
